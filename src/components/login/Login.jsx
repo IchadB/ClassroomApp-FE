@@ -48,29 +48,6 @@ const Login = () => {
       });
     }
   };
-  const handleLoginSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const res = await login(userLogin);
-
-      if (res.data.status) {
-        dispatch(setCredentials({ ...res }));
-        if (res.data.type === "teacher") {
-          navigate("/teacher");
-        } else {
-          navigate("/student");
-        }
-      } else {
-        toast.error(res.data.msg, {
-          position: toast.POSITION.TOP_CENTER,
-        });
-      }
-    } catch (err) {
-      toast.error(err?.data?.message || err.error, {
-        position: toast.POSITION.TOP_CENTER,
-      });
-    }
-  };
 
   return (
     <div className="login__body">
