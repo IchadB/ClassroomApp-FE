@@ -38,7 +38,7 @@ const Login = () => {
           navigate("/student");
         }
       } else {
-        toast.error(res.error.data.msg, {
+        toast.error("User not found!...", {
           position: toast.POSITION.TOP_CENTER,
         });
       }
