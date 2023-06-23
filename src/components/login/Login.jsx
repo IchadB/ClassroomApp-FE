@@ -42,8 +42,8 @@ const Login = () => {
           position: toast.POSITION.TOP_CENTER,
         });
       }
-    } catch (err) {
-      toast.error(err?.data?.message || err.error, {
+    } catch (error) {
+      toast.error(error?.data?.msg || error.error, {
         position: toast.POSITION.TOP_CENTER,
       });
     }
