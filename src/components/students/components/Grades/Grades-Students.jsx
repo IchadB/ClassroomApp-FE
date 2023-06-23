@@ -54,7 +54,7 @@ function GradesStudents() {
 											<td className='table__body--grades'>{index + 1}</td>
 											<td className='table__body--grades'>{data.subject}</td>
 											<td className='table__body--grades'>{data.title}</td>
-											<td className='table__body--grades'>90%</td>
+											<td className='table__body--grades'>0%</td>
 										</tr>
 									);
 								})}
