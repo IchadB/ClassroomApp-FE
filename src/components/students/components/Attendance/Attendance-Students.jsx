@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import API_Service from "../../../../api-service/API_Service";
-import HeaderStudents from "../../layout/Header/Header-Students";
-import "./Attendance.css";
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import API_Service from '../../../../api-service/API_Service';
+import HeaderStudents from '../../layout/Header/Header-Students';
+import './Attendance.css';
 
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { toast } from "react-toastify";
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { toast } from 'react-toastify';
 
 function AttendanceStudents() {
 	const { userInfo } = useSelector((state) => state.auth);
@@ -15,17 +15,17 @@ function AttendanceStudents() {
 	const { fname, lname, email } = userInfo.data.registeredData;
 
 	const [attendanceForm, setAttendanceForm] = useState({
-		attendance: "",
+		attendance: '',
 		fname: fname,
 		lname: lname,
 		email: email,
-		comment: "",
+		comment: '',
 	});
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 
-		if (event.target.type === "radio") {
+		if (event.target.type === 'radio') {
 			setAttendanceForm((prevAttendanceForm) => ({
 				...prevAttendanceForm,
 				attendance: value,
@@ -43,7 +43,7 @@ function AttendanceStudents() {
 
 		try {
 			const response = await API_Service.post(
-				"students/attendance-students",
+				'students/attendance-students',
 				attendanceForm,
 				{
 					headers: {
@@ -51,6 +51,7 @@ function AttendanceStudents() {
 					},
 				}
 			);
+			console.log(response);
 			if (response.data.status) {
 				toast.success(response.data.message, {
 					position: toast.POSITION.TOP_CENTER,
@@ -65,8 +66,8 @@ function AttendanceStudents() {
 		}
 
 		setAttendanceForm({
-			attendance: "",
-			comment: "",
+			attendance: '',
+			comment: '',
 		});
 	};
 
@@ -91,7 +92,7 @@ function AttendanceStudents() {
 										label="Yes, I'll be there!"
 										name='attendance'
 										value='present'
-										checked={attendanceForm.attendance === "present"}
+										checked={attendanceForm.attendance === 'present'}
 										onChange={handleChange}
 										required
 									/>
@@ -100,7 +101,7 @@ function AttendanceStudents() {
 										label="Can't make it"
 										name='attendance'
 										value='absent'
-										checked={attendanceForm.attendance === "absent"}
+										checked={attendanceForm.attendance === 'absent'}
 										onChange={handleChange}
 										required
 									/>
@@ -113,7 +114,7 @@ function AttendanceStudents() {
 							value={attendanceForm.comment}
 							onChange={handleChange}
 							placeholder='Leave a comment here'
-							style={{ height: "100px" }}
+							style={{ height: '100px' }}
 							required
 						/>
 						<Button variant='primary' className='my-3' size='lg' type='submit'>

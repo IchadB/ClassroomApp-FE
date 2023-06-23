@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { useRef } from "react";
-import { Link, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import API_Service from "../../../../api-service/API_Service";
+import React, { useEffect, useState } from 'react';
+import { useRef } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import API_Service from '../../../../api-service/API_Service';
 
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import { Form } from "react-bootstrap";
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import { Form } from 'react-bootstrap';
 
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 function TakeExamsStudents() {
 	const [exam, setExam] = useState({});
 	const [answeredExam, setAnsweredExam] = useState({
-		subject: "",
-		answer: "",
-		studentId: "",
-		examId: "",
+		subject: '',
+		answer: '',
+		studentId: '',
+		examId: '',
 	});
 	const [studentAnswers, setStudentAnswers] = useState([]);
 
@@ -71,7 +71,7 @@ function TakeExamsStudents() {
 		};
 		try {
 			const response = await API_Service.post(
-				"/students/exam-answers",
+				'/students/exam-answers',
 				updatedAnsweredExam,
 				{
 					headers: {
@@ -79,6 +79,7 @@ function TakeExamsStudents() {
 					},
 				}
 			);
+			console.log(response);
 			if (response.data.status) {
 				toast.success(response.data.message, {
 					position: toast.POSITION.TOP_CENTER,
@@ -91,8 +92,6 @@ function TakeExamsStudents() {
 		} catch (error) {
 			console.log(error);
 		}
-
-		console.log(updatedAnsweredExam);
 
 		formRef.current.reset();
 		setStudentAnswers([]);
