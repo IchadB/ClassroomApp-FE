@@ -38,7 +38,7 @@ const Login = () => {
           navigate("/student");
         }
       } else {
-        toast.error(res.data.msg, {
+        toast.error(res.error.data.msg, {
           position: toast.POSITION.TOP_CENTER,
         });
       }
