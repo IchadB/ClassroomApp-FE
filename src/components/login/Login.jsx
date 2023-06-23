@@ -29,7 +29,6 @@ const Login = () => {
     event.preventDefault();
     try {
       const res = await login(userLogin);
-      console.log(res);
       if (res.data.status) {
         dispatch(setCredentials({ ...res }));
         if (res.data.type === "teacher") {
