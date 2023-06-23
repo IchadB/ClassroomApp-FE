@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import HeaderStudents from "../../layout/Header/Header-Students";
-import API_Service from "../../../../api-service/API_Service";
-import "./Grades.css";
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import HeaderStudents from '../../layout/Header/Header-Students';
+import API_Service from '../../../../api-service/API_Service';
+import './Grades.css';
 
-import { Container } from "react-bootstrap";
+import { Container } from 'react-bootstrap';
 
 function GradesStudents() {
 	const [examsData, setExamsData] = useState([]);
@@ -14,7 +14,7 @@ function GradesStudents() {
 	useEffect(() => {
 		const getExams = async () => {
 			try {
-				const response = await API_Service.get("/teachers/activities", {
+				const response = await API_Service.get('/teachers/activities', {
 					headers: {
 						Authorization: `Bearer ${userInfo.data.token}`,
 					},
@@ -54,7 +54,7 @@ function GradesStudents() {
 											<td className='table__body--grades'>{index + 1}</td>
 											<td className='table__body--grades'>{data.subject}</td>
 											<td className='table__body--grades'>{data.title}</td>
-											<td className='table__body--grades'>90%</td>
+											<td className='table__body--grades'>0%</td>
 										</tr>
 									);
 								})}
