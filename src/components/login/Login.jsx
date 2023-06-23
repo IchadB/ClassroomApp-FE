@@ -38,12 +38,12 @@ const Login = () => {
           navigate("/student");
         }
       } else {
-        toast.error("User not found!...", {
+        toast.error(res.error.data.msg, {
           position: toast.POSITION.TOP_CENTER,
         });
       }
     } catch (error) {
-      toast.error(error?.data?.msg || error.error, {
+      toast.error("User not found!...", {
         position: toast.POSITION.TOP_CENTER,
       });
     }
