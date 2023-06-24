@@ -6,6 +6,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import API_Service from "../../../api-service/API_Service";
 import Button from "react-bootstrap/Button";
 import { useSelector } from "react-redux";
+import Table from "react-bootstrap/Table";
 import StudentScores from "../student-component/Student_Scores";
 
 const Activity_Details = () => {
@@ -109,7 +110,44 @@ const Activity_Details = () => {
             })}
         </div>
       </Container>
-      <Container className="my-4"></Container>
+      <Container className="my-4">
+        <Table responsive className="p-0 mt-4" size="sm">
+          <thead
+            className="p-3"
+            style={{
+              backgroundColor: "#98eecc",
+              border: "black",
+            }}
+          >
+            <tr>
+              <th>#</th>
+              <th>Subject</th>
+              <th>Student ID</th>
+              <th>Exam ID</th>
+              <th>Answered Date</th>
+              <th>Answers</th>
+            </tr>
+          </thead>
+          <tbody>
+            {!answers.length ? (
+              <h6>No students answered this exam yet...</h6>
+            ) : (
+              answers.map((answer, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{answers.subject}</td>
+                    <td>{answers.studentId}</td>
+                    <td>{answers.examId}</td>
+                    <td>{answers.answeredAt}</td>
+                    <td></td>
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </Table>
+      </Container>
     </>
   );
 };

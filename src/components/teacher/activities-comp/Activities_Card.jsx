@@ -43,7 +43,7 @@ const Activities_Card = () => {
                 </Card.Header>
                 <Card.Body className="card-body">
                   <Card.Title style={{ fontSize: 14, fontWeight: "bold" }}>
-                    {exam.title}
+                    {exam.subject}
                   </Card.Title>
                   <Card.Text style={{ fontSize: 12 }}>
                     {moment(exam.createdAt).format("MMMM Do YYYY")}
