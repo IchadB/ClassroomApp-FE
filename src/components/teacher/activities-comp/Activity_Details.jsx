@@ -130,7 +130,7 @@ const Activity_Details = () => {
           </thead>
           <tbody>
             {!answers.length ? (
-              <h6>No students answered this exam yet...</h6>
+              <tr>No students answered this exam yet...</tr>
             ) : (
               answers.map((answer, index) => {
                 return (
