@@ -45,7 +45,7 @@ const Activity_Details = () => {
           }
         );
         console.log(response.data);
-        setAnswers(response.data[0]);
+        setAnswers(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -129,7 +129,7 @@ const Activity_Details = () => {
             </tr>
           </thead>
           <tbody>
-            {!answers ? (
+            {!answers.length ? (
               <h6>No students answered this exam yet...</h6>
             ) : (
               answers.map((answer, index) => {
