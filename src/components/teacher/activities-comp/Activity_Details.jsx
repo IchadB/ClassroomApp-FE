@@ -136,10 +136,10 @@ const Activity_Details = () => {
                 return (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{answers.subject}</td>
-                    <td>{answers.studentId}</td>
-                    <td>{answers.examId}</td>
-                    <td>{answers.answeredAt}</td>
+                    <td>{answer.subject}</td>
+                    <td>{answer.studentId}</td>
+                    <td>{answer.examId}</td>
+                    <td>{answer.answeredAt}</td>
                     <td></td>
                   </tr>
                 );
