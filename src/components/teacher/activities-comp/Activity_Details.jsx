@@ -55,6 +55,7 @@ const Activity_Details = () => {
   }, [id]);
 
   const answersOfExam = (answers) => {
+    console.log(answers.answer);
     answers.answer.map((s_a, index) => {
       return <span>{s_a[index]}</span>;
     });
@@ -146,7 +147,7 @@ const Activity_Details = () => {
                     <td>{answer.studentId}</td>
                     <td>{answer.examId}</td>
                     <td>{answer.answeredAt}</td>
-                    <td>{answersOfExam}</td>
+                    <td>{answersOfExam(answers)}</td>
                   </tr>
                 );
               })
