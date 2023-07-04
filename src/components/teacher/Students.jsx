@@ -19,6 +19,7 @@ const Students = () => {
           Authorization: `Bearer ${userInfo.data.token}`,
         },
       });
+      console.log(response.data);
       setStudents(response.data);
     } catch (error) {
       console.error(error);
